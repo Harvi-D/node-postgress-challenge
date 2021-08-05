@@ -20,13 +20,13 @@ async function sportExists(req, res, next) {
 
 async function list(req, res, next) {
     //const data = await SportsService.getSports();
-    res.status(200).json(await SportsService.getSports(db) );
+    res.status(200).json(await SportsService.getSports(db));
 } 
 
 async function destroy(req, res, next) {
     const { sport } = res.locals;
-    console.log(res.locals);
-    await SportsService.deleteSport(sport.sport.id);
+    //console.log(res.locals);
+    await SportsService.deleteSport(sport.id);
     res.sendStatus(204);
 }
 

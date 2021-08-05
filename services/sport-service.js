@@ -10,8 +10,9 @@ const SportsService = {
         );
     },
     deleteSport(db, sport_id) {
-      return db('sport')
-        .where({'id': sport_id})
+      return db
+        .from('sport')
+        .where({'sport.id': sport_id})
         .delete()
     },
     readSport(db, sport_id){
