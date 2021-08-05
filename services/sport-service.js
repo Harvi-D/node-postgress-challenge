@@ -1,6 +1,7 @@
+const db = require("../db/connection");
 
 const SportsService = {
-    getSports(db) {
+    getSports() {
       return db
         .from('sport')
         .select(
@@ -9,12 +10,12 @@ const SportsService = {
           'sport.players',
         );
     },
-    deleteSport(db, sport_id) {
+    deleteSport(sport_id) {
       return db('sport')
         .where({'id': sport_id})
         .delete()
     },
-    readSport(db, sport_id){
+    readSport(sport_id){
       return db
         .from('sport')
         .select('*')
